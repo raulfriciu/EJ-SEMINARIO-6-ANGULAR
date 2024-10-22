@@ -1,0 +1,19 @@
+<form [formGroup]="searchForm" (ngSubmit)="searchUser()">
+    <input formControlName="username" type="text" placeholder="Buscar usuario" />
+    <button type="submit">Buscar</button>
+  </form>
+  
+  <!-- Mensaje si no se encontró el usuario -->
+  <div *ngIf="userNotFound">
+    <p>Usuario no encontrado.</p>
+  </div>
+  
+  <!-- Mostrar las experiencias del usuario si se encontró -->
+  <div *ngIf="userFound">
+    <ul>
+      <li *ngFor="let experiencia of userExperiences">
+        {{ experiencia.description }}
+      </li>
+    </ul>
+  </div>
+  
